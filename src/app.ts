@@ -1,6 +1,6 @@
 import { JsonParsers, XmlParsers } from "./parsers";
 import { Performance, startPerformanceObserver } from "./utils/performance";
-const fileNames = ["test_261k"];
+const fileNames = ["test_7"];
 
 async function runJsonTest(key: string, file: string) {
   const performance = new Performance(`${file}.json`, key);

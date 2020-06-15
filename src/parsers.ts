@@ -14,6 +14,7 @@ import { fastJsonParser } from "./json/fast-json-parser";
 import { simdjsonParser } from "./json/simdjson";
 import { xml2JsonParser } from "./xml/xml2json";
 import { jxonParser } from "./xml/jxon";
+import { xml2JsonNodeParser } from "./xml/xml2json-node";
 
 export const JsonParsers = {
   // STREAM_JSON: streamJsonParser,
@@ -34,5 +35,6 @@ export const XmlParsers = {
   // XML_STREAM: xmlStreamParser,
   // XML_STREAMER: xmlStreamerParser,
   // XML2JSON_PARSER: xml2JsonParser,
-  JXON_PARSER: jxonParser,
+  // JXON_PARSER: jxonParser,
+  // XML2JSON_NODE: xml2JsonNodeParser,
 };
