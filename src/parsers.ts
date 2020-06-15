@@ -1,22 +1,25 @@
-import { streamJsonParser } from "./json/stream-json";
+import { bigJsonParser } from "./json/big-json";
 import { jsonStreamParser } from "./json/jsonstream";
-import camaro from "camaro";
+import { jsonStream2Parser } from "./json/jsonstream2";
+import { minipassJsonStreamParser } from "./json/minipass-json-stream";
+import { streamJsonParser } from "./json/stream-json";
+import { camaroParse } from "./xml/camaro";
 import { fastXmlParser } from "./xml/fastXmlParser";
 import { saxophoneParser } from "./xml/saxophone";
 import { slimdomSaxParser } from "./xml/slimdomSaxParser";
 import { xmlStreamParser } from "./xml/xml-stream";
 import { xmlStreamerParser } from "./xml/xml-streamer";
-import { camaroParse } from "./xml/camaro";
-import { minipassJsonStreamParser } from "./json/minipass-json-stream";
-import { jsonStream2Parser } from "./json/jsonstream2";
-import { bigJsonParser } from "./json/big-json";
+import { fastJsonParse } from "./json/fast-json-parse";
+import { fastJsonParser } from "./json/fast-json-parser";
 
 export const JsonParsers = {
   // STREAM_JSON: streamJsonParser,
   // JSON_STREAM: jsonStreamParser,
   // MINIPASS_JSON_STREAM: minipassJsonStreamParser,
   // JSON_STREAM_2: jsonStream2Parser,
-  BIG_JSON: bigJsonParser,
+  // BIG_JSON: bigJsonParser,
+  // FAST_JSON_PARSE: fastJsonParse,
+  FAST_JSON_PARSER: fastJsonParser,
 };
 
 export const XmlParsers = {

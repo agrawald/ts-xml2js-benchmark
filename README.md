@@ -1,32 +1,4 @@
-# benchmakring XML 2 JSON transformation
-
-Following libraries are used for this benchmarking
-
-## XML Parsers
-
-- camaro
-- fast-xml-parser
-- saxophone
-- slimdom-sax-parser
-- xml-streamer
-- xml-stream
-
-## JSON Parsers
-
-- minipass-json-stream
-- JSONStream
-- stream-json
-
-# payload being parsed
-
-The XML with a JSON data embedded as a string, not a CDATA.
-
-# number of payloads
-
-- 7MB
-- 216KB
-
-# performance
+# benchmarking XML 2 JSON transformation libraries
 
 ## XML Parser
 
@@ -50,3 +22,14 @@ The XML with a JSON data embedded as a string, not a CDATA.
 | jsonstream2          | 946     | 53        |
 | big-json             | 888     | 105       |
 | simdjson             |         |           |
+| fast-json-parse      | 214     | 5.5       |
+| fast-json-parser     | 414     | 104       |
+
+# payload being parsed
+
+The XML with a JSON data embedded as a string, not a CDATA.
+
+# number of payloads
+
+- 7MB
+- 216KB
