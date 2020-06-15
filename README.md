@@ -7,6 +7,7 @@ Following libraries are used for this benchmarking
 - saxophone
 - slimdom-sax-parser
 - xml-streamer
+- xml-stream
 
 # payload being parsed
 
@@ -21,25 +22,30 @@ The XML with a JSON data embedded as a string, not a CDATA.
 
 ## camaro
 
-- Parsing: 198.583ms - 261KB
-- Parsing: 492.743ms - 7MB
+- Parsing: 526.674ms 261KB
+- Parsing: 1958.413ms 7MB
 
 ## fast-xml-parser
 
-- Parsing: 89.537ms -261KB
-- Parsing: 1708.371ms - 7MB
+- Parsing: 89.537ms -261k
+- Parsing: 2270.872ms - 7M
 
 ## saxophone
 
-- Parsing: 26.150ms 261KB
-- Parsing: 41.615ms 7MB
+- Parsing: 131.673ms 261k
+- Parsing: 1415.928ms 7m
 
 ## slimdom-sax-parser
 
-- Parsing: 82.531ms - 261KB
-- Parsing: 182.581ms - 7MB
+- Parsing: 134.926ms 261KB
+- Parsing: 895.082ms 7MB
 
 ## xml-streamer
 
-- Parsing: 60.090ms - 7MB
-- Parsing: 11.216ms -261KB
+- Parsing: 113.859ms - 261KB
+- Parsing: 953.946ms - 7MB
+
+## xml-stream
+
+- Parsing: 147.483ms 261KB
+- Parsing: 1764.174ms 7MB

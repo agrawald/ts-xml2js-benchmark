@@ -1,42 +1,33 @@
-import fs from "fs";
-import { Saxophone } from "saxophone-ts";
-const JSONStream = require("JSONStream");
+import { JsonParsers, XmlParsers } from "./parsers";
+import { Performance, startPerformanceObserver } from "./utils/performance";
 
-const parser = new Saxophone();
-let found = false;
-let json = null;
+startPerformanceObserver();
 
-parser.on("tagOpen", (tag) => {
-  console.log(tag.name);
-  if (tag.name === "a:dataJson") {
-    found = true;
-  }
-});
-
-parser.on("text", (text) => {
-  if (found) {
-    json = JSONStream.parse(text.contents);
-  }
-});
-
-parser.on("tagClose", (tag) => {
-  if (tag.name === "a:dataJson") {
-    found = false;
-  }
-});
-
-// Called when we are done parsing the document
-parser.on("finish", () => {
-  console.timeEnd("Parsing");
-});
-
-function readTestXml(): string {
-  // return fs.readFileSync("./test_261k.xml", "utf-8");
-  return fs.readFileSync("./test_7.xml", "utf-8");
+////////
+const dataJsonFiles = ["test_261k.json", "test_7.json"];
+function runJsonTest(key: string) {
+  dataJsonFiles.forEach(async (file) => {
+    const performance = new Performance(file, key);
+    await JsonParsers[key](file);
+    performance.measure();
+  });
 }
 
-console.time("Parsing");
-parser.parse(readTestXml());
-console.log(json);
-//Parsing: 26.150ms 261k
-//Parsing: 41.615ms 7m
+////////
+const dataXmlFiles = ["test_261k.xml", "test_7.xml"];
+function runXmlTest(key: string) {
+  dataXmlFiles.forEach(async (file) => {
+    const performance = new Performance(file, key);
+    await XmlParsers[key](file);
+    performance.measure();
+  });
+}
+
+// start the test
+Object.keys(JsonParsers).forEach((key) => {
+  runJsonTest(key);
+});
+
+Object.keys(XmlParsers).forEach((key) => {
+  runXmlTest(key);
+});
