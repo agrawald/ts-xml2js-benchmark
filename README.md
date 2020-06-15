@@ -21,7 +21,7 @@
 | stream-json          | 1817    | 106       |
 | jsonstream2          | 946     | 53        |
 | big-json             | 888     | 105       |
-| simdjson             |         |           |
+| simdjson             | 79      | 3.6       |
 | fast-json-parse      | 214     | 5.5       |
 | fast-json-parser     | 414     | 104       |
 
