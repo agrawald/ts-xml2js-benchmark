@@ -1,5 +1,5 @@
 import fs from "fs";
-const xml2json = require('xml2json-node');
+import xml2json from 'xml2json-node';
 
 export async function xml2JsonNodeParser(fileName: string) {
   const xml = fs.readFileSync(fileName, "utf-8");

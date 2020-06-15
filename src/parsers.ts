@@ -36,5 +36,5 @@ export const XmlParsers = {
   // XML_STREAMER: xmlStreamerParser,
   // XML2JSON_PARSER: xml2JsonParser,
   // JXON_PARSER: jxonParser,
-  // XML2JSON_NODE: xml2JsonNodeParser,
+  XML2JSON_NODE: xml2JsonNodeParser,
 };
