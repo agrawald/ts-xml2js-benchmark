@@ -2,12 +2,20 @@
 
 Following libraries are used for this benchmarking
 
+## XML Parsers
+
 - camaro
 - fast-xml-parser
 - saxophone
 - slimdom-sax-parser
 - xml-streamer
 - xml-stream
+
+## JSON Parsers
+
+- minipass-json-stream
+- JSONStream
+- stream-json
 
 # payload being parsed
 
@@ -20,32 +28,25 @@ The XML with a JSON data embedded as a string, not a CDATA.
 
 # performance
 
-## camaro
+## XML Parser
 
-- Parsing: 526.674ms 261KB
-- Parsing: 1958.413ms 7MB
+| Parser             | 7MB(ms) | 261MB(ms) |
+| ------------------ | ------- | --------- |
+| camaro             | 496     | 186       |
+| fast-xml-parser    | 2707    | 67        |
+| saxophone          | 19      | 4         |
+| slimdom-sax-parser | 118     | 52        |
+| xml-streamer       | 66      | 7         |
+| xml-stream         | 69      | 69        |
+| xml-conv-json      |         |           |
 
-## fast-xml-parser
+## JSON Parser
 
-- Parsing: 89.537ms -261k
-- Parsing: 2270.872ms - 7M
-
-## saxophone
-
-- Parsing: 131.673ms 261k
-- Parsing: 1415.928ms 7m
-
-## slimdom-sax-parser
-
-- Parsing: 134.926ms 261KB
-- Parsing: 895.082ms 7MB
-
-## xml-streamer
-
-- Parsing: 113.859ms - 261KB
-- Parsing: 953.946ms - 7MB
-
-## xml-stream
-
-- Parsing: 147.483ms 261KB
-- Parsing: 1764.174ms 7MB
+| Parser               | 7MB(ms) | 261MB(ms) |
+| -------------------- | ------- | --------- |
+| JSONStream           | 767     | 46        |
+| minipass-json-stream | 886     | 56        |
+| stream-json          | 1817    | 106       |
+| jsonstream2          | 946     | 53        |
+| big-json             | 888     | 105       |
+| simdjson             |         |           |

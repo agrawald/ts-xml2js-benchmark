@@ -1,33 +1,36 @@
 import { JsonParsers, XmlParsers } from "./parsers";
 import { Performance, startPerformanceObserver } from "./utils/performance";
+const fileNames = ["test_7"];
+
+////////
+async function runJsonTest(key: string, file: string) {
+  const performance = new Performance(`${file}.json`, key);
+  await JsonParsers[key](`${file}.json`);
+  performance.measure();
+}
+
+////////
+async function runXmlTest(key: string, file: string) {
+  const performance = new Performance(`${file}.xml`, key);
+  await XmlParsers[key](`${file}.xml`);
+  performance.measure();
+}
 
 startPerformanceObserver();
 
-////////
-const dataJsonFiles = ["test_261k.json", "test_7.json"];
-function runJsonTest(key: string) {
-  dataJsonFiles.forEach(async (file) => {
-    const performance = new Performance(file, key);
-    await JsonParsers[key](file);
-    performance.measure();
-  });
-}
-
-////////
-const dataXmlFiles = ["test_261k.xml", "test_7.xml"];
-function runXmlTest(key: string) {
-  dataXmlFiles.forEach(async (file) => {
-    const performance = new Performance(file, key);
-    await XmlParsers[key](file);
-    performance.measure();
-  });
-}
-
 // start the test
 Object.keys(JsonParsers).forEach((key) => {
-  runJsonTest(key);
+  for (const fileName of fileNames) {
+    if (fileName) {
+      runJsonTest(key, fileName);
+    }
+  }
 });
 
 Object.keys(XmlParsers).forEach((key) => {
-  runXmlTest(key);
+  for (const fileName of fileNames) {
+    if (fileName) {
+      runXmlTest(key, fileName);
+    }
+  }
 });
