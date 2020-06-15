@@ -10,7 +10,8 @@
 | slimdom-sax-parser | 118     | 52        |
 | xml-streamer       | 66      | 7         |
 | xml-stream         | 69      | 69        |
-| xml-conv-json      |         |           |
+| xml2json           | 99      | 9         |
+| jxon               | 71      | 8         |
 
 ## JSON Parser
 
