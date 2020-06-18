@@ -12,6 +12,7 @@
 | xml-stream         | 69      | 69        |
 | xml2json           | 99      | 9         |
 | jxon               | 71      | 8         |
+| xmlmapper          | 64      | 9         |
 
 ## JSON Parser
 

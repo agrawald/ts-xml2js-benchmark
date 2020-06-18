@@ -44,6 +44,7 @@
     "xml-stream": "^0.4.5",
     "xml-streamer": "^1.1.0",
     "xml2json": "^0.12.0",
-    "xml2json-node": "^2.0.0"
+    "xml2json-node": "^2.0.0",
+    "xmlmapper": "^0.2.0"
   }
 }
