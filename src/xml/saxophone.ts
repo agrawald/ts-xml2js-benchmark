@@ -37,30 +37,30 @@ export class SaSaxophone extends Saxophone {
   subscribe(request: SubcriptionReq): Promise<SubscriptionRes> {
     return new Promise((resolve, reject) => {
       const response = {};
-      let found: string;
+      let subscription: Subscription | null;
       this.parser.on("tagOpen", (pTag) => {
-        for (const opt of request) {
-          if (pTag.name === opt["tag"]) {
-            found = opt["name"] || pTag.name;
+        for (const sub of request) {
+          if (pTag.name === sub.tag) {
+            subscription = sub;
+            break;
           }
         }
       });
 
       this.parser.on("text", (pText) => {
-        if (found) {
-          if (request[found]) {
-            response[found] = request[found].convert(pText);
+        if (subscription) {
+          const key = subscription.name || subscription.tag;
+          if (subscription.converter) {
+            response[key] = subscription.converter.convert(pText.contents);
           } else {
-            response[found] = pText;
+            response[key] = pText.contents;
           }
         }
       });
 
       this.parser.on("tagClose", (pTag) => {
-        for (const opt of request) {
-          if (pTag === opt["tag"]) {
-            found = null;
-          }
+        if (subscription && subscription.tag === pTag.name) {
+          subscription = null;
         }
       });
 
@@ -83,11 +83,13 @@ export interface Converter<T> {
   convert(value: string): T;
 }
 
-export type SubcriptionReq = {
+export type Subscription = {
   tag: string;
   name?: string;
   converter?: Converter<string | object>;
-}[];
+};
+
+export type SubcriptionReq = Subscription[];
 
 export type DataType = string | object | number;
 
