@@ -4,11 +4,11 @@ import fs from "fs";
 import { Readable } from "stream-chain";
 
 const schema = {
-  name: "assmtRslt",
-  path: "soapenv:Envelope.soapenv:Body.a:confirmedCircumstanceDetail",
+  name: "person",
+  path: "root.person",
   properties: [
-    { name: "inputRefId", path: "a:inputRefId" },
-    { name: "dataJson", path: "a:dataJson" },
+    { name: "name", path: "name" },
+    { name: "id", path: "id" },
   ],
 };
 
@@ -20,7 +20,7 @@ export function xmlMapperParser(fileName: string) {
       .on("parsed", (name: string, object: any) => {
         resolve(object);
       })
-      .parse(readable, function (err: Error) {
+      .parse(readable, (err: Error) => {
         if (err) {
           reject(err);
         }

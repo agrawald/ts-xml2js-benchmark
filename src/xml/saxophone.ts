@@ -17,13 +17,12 @@ export async function saxophoneParser(fileName: string): Promise<any> {
   const xml = fs.readFileSync(fileName, "utf-8");
   const saSaxophone = new SaSaxophone(xml);
   const subscriptionReq = [
-    { tag: "a:dataJson", name: "dataJson", converter: new JsonConverter() },
-    { tag: "a:inputRefId", name: "cliRefId" },
+    { tag: "name", name: "name" },
+    { tag: "id", name: "id" },
   ];
   const pResponse = saSaxophone.subscribe(subscriptionReq);
   saSaxophone.parse();
-  const response = await pResponse;
-  console.info(Object.keys(response));
+  return await pResponse;
 }
 
 export class SaSaxophone extends Saxophone {

@@ -13,6 +13,3 @@ export async function streamJsonParser(jsonFile: string): Promise<object> {
     });
   });
 }
-
-// test_261k.json: 212.458ms
-// test_7.json: 1831.453ms
